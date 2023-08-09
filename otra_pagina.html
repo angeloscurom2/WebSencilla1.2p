@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Informacion</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const animationContainer = document.querySelector(".animation-container");
+
+            function createSquare() {
+                const square = document.createElement("div");
+                square.className = "square";
+
+                const randomX = Math.random() * (window.innerWidth - 20);
+                const randomY = Math.random() * (window.innerHeight - 20);
+
+                square.style.left = `${randomX}px`;
+                square.style.top = `${randomY}px`;
+
+                animationContainer.appendChild(square);
+
+                setTimeout(() => {
+                    square.remove();
+                }, 3000);
+            }
+
+            function addSquareWithDelay() {
+                createSquare();
+                setTimeout(addSquareWithDelay, 900);
+            }
+
+            addSquareWithDelay();
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuButton = document.querySelector(".menu-button");
+            const menu = document.querySelector(".menu");
+            
+            menuButton.addEventListener("click", function () {
+                menu.classList.toggle("open");
+
+            const opcion1 = document.querySelector(".opcion1");
+            opcion1.addEventListener("click", function () {
+                window.location.href = "index.html";
+            });
+
+            const opcion2 = document.querySelector(".opcion2");
+            opcion2.addEventListener("click", function () {
+            window.location.href = "otra_pagina.html";
+
+            });
+
+            const opcion3 = document.querySelector(".opcion3");
+            opcion3.addEventListener("click", function () {
+            window.location.href = "otra_pagina2.html";
+
+            });
+        });
+            });
+
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <ul class="menu-list">
+            <li class="opcion1"><a href="#">Pagina Principal</a></li>
+            <li class="opcion2"><a href="#">Pagina Informacion</a></li>
+            <li class="opcion3"><a href="#">Pagina Aleatoria</a></li>
+        </ul>
+        <button class="menu-button">Menú</button>
+    </div>
+    <h1>Página Informacion</h1>
+    <div class="animation-container">
+        <!-- Aquí es donde agregaremos los cuadrados animados -->
+    </div>
+    <div class="white-section">
+        <p>Esta es la pagina de informacion.</p>
+        <p>La podes encontrar como "otra_pagina.html" este texto se puede cambiar.</p>
+        <p>Todo es cambiable, migra tu imaginacion esto solo es un ejemplo que he hecho lo mas rapido que pude.</p>
+    </div>
+</body>
+</html>

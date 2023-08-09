@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleatoria</title>
+    <script>
+        const safeWebsites = [
+            "https://www.google.com",
+            "https://www.wikipedia.org",
+            "https://www.nytimes.com",
+            "https://www.youtube.com",
+            "https://www.",
+            // Aqui puedes agregar links.
+        ];
+
+        function redirectToRandomPage() {
+            const randomIndex = Math.floor(Math.random() * safeWebsites.length);
+            const randomPage = safeWebsites[randomIndex];
+
+            window.open(randomPage, "_blank");
+        }
+    </script>
+</head>
+<body>
+    <h1>Página Aleatoria</h1>
+    <button onclick="redirectToRandomPage()">Ir a una Página Aleatoria</button>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Aleatoria</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const animationContainer = document.querySelector(".animation-container");
+
+            function createSquare() {
+                const square = document.createElement("div");
+                square.className = "square";
+
+                const randomX = Math.random() * (window.innerWidth - 20);
+                const randomY = Math.random() * (window.innerHeight - 20);
+
+                square.style.left = `${randomX}px`;
+                square.style.top = `${randomY}px`;
+
+                animationContainer.appendChild(square);
+
+                setTimeout(() => {
+                    square.remove();
+                }, 3000);
+            }
+
+            function addSquareWithDelay() {
+                createSquare();
+                setTimeout(addSquareWithDelay, 900);
+            }
+
+            addSquareWithDelay();
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuButton = document.querySelector(".menu-button");
+            const menu = document.querySelector(".menu");
+            
+            menuButton.addEventListener("click", function () {
+                menu.classList.toggle("open");
+
+            const opcion1 = document.querySelector(".opcion1");
+            opcion1.addEventListener("click", function () {
+                window.location.href = "index.html";
+            });
+
+            const opcion2 = document.querySelector(".opcion2");
+            opcion2.addEventListener("click", function () {
+            window.location.href = "otra_pagina.html";
+
+            });
+
+            const opcion3 = document.querySelector(".opcion3");
+            opcion3.addEventListener("click", function () {
+            window.location.href = "otra_pagina2.html";
+
+            });
+        });
+            });
+
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <ul class="menu-list">
+            <li class="opcion1"><a href="#">Pagina Principal</a></li>
+            <li class="opcion2"><a href="#">Pagina Informacion</a></li>
+            <li class="opcion3"><a href="#">Pagina Aleatoria</a></li>
+        </ul>
+        <button class="menu-button">Menú</button>
+    </div>
+    <div class="animation-container">
+        <!-- Aquí es donde agregaremos los cuadrados animados -->
+    </div>
+</html>
